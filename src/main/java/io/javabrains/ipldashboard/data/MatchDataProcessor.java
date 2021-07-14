@@ -10,6 +10,7 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
   public Match process(final MatchInput matchInput) throws Exception {
     
     Match match = new Match();
+    
     match.setId(Long.parseLong(matchInput.getId()));
     match.setCity(matchInput.getCity());
     match.setDate(LocalDate.parse(matchInput.getDate()));
@@ -28,6 +29,7 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
         firstInningsTeam = matchInput.getToss_winner().equals(matchInput.getTeam1()) 
             ? matchInput.getTeam2() : matchInput.getTeam1();
     }
+    
     match.setTeam1(firstInningsTeam);
     match.setTeam2(secondInningsTeam);
     match.setTossWinner(matchInput.getToss_winner());

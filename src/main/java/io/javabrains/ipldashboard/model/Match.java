@@ -2,7 +2,13 @@ package io.javabrains.ipldashboard.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Match {
+    
+    @Id
     private long id;
     private String city;
     private LocalDate date;
@@ -106,6 +112,4 @@ public class Match {
     public void setUmpire2(String umpire2) {
         this.umpire2 = umpire2;
     }
-
-    
 }
