@@ -40,7 +40,6 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
         .map(e -> new Team((String) e[0], (Long) e[1]))
         .forEach(team -> teamData.put(team.getTeamName(), team));
 
-
       eManager.createQuery("SELECT m.team2, COUNT(*) FROM Match m GROUP BY m.team2", Object[].class)
         .getResultList()
         .stream()
